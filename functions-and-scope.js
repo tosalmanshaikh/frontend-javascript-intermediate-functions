@@ -4,6 +4,10 @@
 
 const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
+// console.log(grades);
+// console.log(grades.length);
+// console.log(i);
+
 /* Opdracht  1: Cum Laude */
 
 /* 1a: Script schrijven  */
@@ -14,13 +18,96 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
 
+
+
+// function cumLaude(result) {
+//
+//     let count = 0;
+//
+//     for (let i = 0; i < grades.length; i++) {
+//
+//         if (grades[i] >= 8)
+//         {
+//             count ++;  //* count = count + 1;
+//
+//         }
+//     }
+//
+//         return count;
+// }
+//
+// const outcome = cumLaude(grades);
+// console.log(outcome);
+
 // ---- Verwachte uitkomst: 6
+
+
+// for (let i = 0; i < grades.length; i++) {
+//     const newGrades = grades[i] >= 8;
+//     console.log(newGrades);
+//
+// }
+//
+// for (let i = 0; i < grades.length; i++) {
+//     if (grades[i] >= 8) {
+//         console.log(grades[i]);
+//     }
+// }
+
+
 
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
+
+
+
+// const gradesB = [6, 4, 5];
+// const gradeC = [8, 9, 4, 6, 10];
+//
+//     function cumLaude (result){
+//
+//         let count = 0;
+//
+//         for (let i = 0; i < grades.length; i++) {
+//
+//             if (grades[i] >= 8)
+//             {
+//                 count ++;  //* count = count + 1;
+//
+//             }
+//         }
+//
+//         return count;
+//     }
+
+
+
+//
+// const outcome1 = cumLaude(grades);
+// console.log(outcome1);
+
+
+function cumLaude(result) {
+    let count = 0;
+    for (let i = 0; i < result.length; i++) {
+        if (result[i] >= 8)
+        {
+            count ++;
+        }
+    }
+    return count;
+}
+
+const outcome1 = cumLaude(grades);
+const outcome2 = cumLaude([6, 4, 5]);
+const outcome3 = cumLaude([8, 9, 4, 6, 10]);
+
+console.log(outcome1, outcome2, outcome3);
+// console.log(outcome2);
+// console.log(outcome3);
 
 // ---- Verwachte uitkomsten:
 // cumLaude(grades) geeft 6

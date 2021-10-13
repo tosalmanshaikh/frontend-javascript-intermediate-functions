@@ -10,6 +10,43 @@
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
 
 
+//* option 1 - using split and keeping it simple!
+function getEmailDomain(emailadres){
+    const newEmail = emailadres.split("@");
+    return newEmail[1];
+}
+
+const result1 = getEmailDomain("a.wiersma@outlook.com");
+console.log(result1);
+
+
+//*option 2 - using loop not my idea but a genius colleague!
+function domainName (email){
+    let placeAt = 0;
+    let domainName = "";
+    for (let i = 0; i < email.length; i++){
+        if (email[i] === "@"){
+            placeAt = i;
+        }
+    }
+
+    for (let j = 0; j < email.length; j++){
+        if (j >= placeAt) {
+            domainName = domainName + email[j];
+        }
+    }
+
+    return domainName;
+    // console.log(email.length)
+
+}
+
+const result2 = domainName("t.mellink@novi.nl");
+console.log(result2);
+
+//* optional way so you dont have to declare const
+// console.log(domainName('t.mellink@novi.nl'))
+
 
 
 /* Opdracht  2 */
@@ -19,6 +56,57 @@
 // typeOfEmail("t.mellink@novi.nl") geeft geeft "Medewerker"
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
+
+//option 1: we use split here first and than use the index no in the array.
+function typeOfEmail(emailadres){
+    const newEmail = emailadres.split("@");
+    // return newEmail;
+
+    if (newEmail[1] === "novi-education.nl")
+    {
+        return "student";
+    }
+
+    else if (newEmail[1] === "novi.nl")
+    {
+        return "medewerker";
+    }
+
+    else
+    {
+        return "externe";
+    }
+
+
+}
+
+const finalResult = typeOfEmail("salman@novi.nl")
+console.log(finalResult);
+
+
+//* option 2: we dont use split and we keep it simple!
+
+function typeOfEmail(emailadres){
+    if (emailadres.includes("@novi-education.nl"))
+    {
+     return "Student";
+    }
+
+    else if (emailadres.includes("@novi.nl"))
+    {
+        return "Medewerker";
+    }
+
+    else
+    {
+        return "Extern";
+    }
+
+
+}
+
+const final = typeOfEmail("n.eeken@novi-education.nl")
+console.log(final);
 
 
 
@@ -34,3 +122,32 @@
 // checkEmailValidity("n.eekenanovi.nl") geeft false - want geen @
 // checkEmailValidity("n.eeken@novinl.") geeft false - want de punt mag niet als laatst
 // checkEmailValidity("tessmellink@novi,nl") geeft false - want er staat een komma in
+
+//sorry for the mess here, do you have a suggestion to write this shorter or smarter? if so, please share! sharing = caring :)
+
+function checkEmailValidity(emailadres){
+
+    if (emailadres.includes("@")
+        && emailadres.includes(",") === false && emailadres.charAt(emailadres.length - 1) !== ".")
+    {
+        return true;
+    }
+
+    else
+
+    {
+        return false;
+    }
+
+}
+
+const outcome = checkEmailValidity("salman@hotmail,com");
+console.log(outcome);
+
+
+
+
+
+
+
+
