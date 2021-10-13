@@ -116,7 +116,6 @@ console.log(outcome1, outcome2, outcome3);
 
 
 
-
 /* Opdracht  2: Gemiddeld cijfer */
 
 /* 2a: Script schrijven  */
