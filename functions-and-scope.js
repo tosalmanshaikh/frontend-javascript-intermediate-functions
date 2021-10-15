@@ -19,41 +19,27 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 
+function cumLaude(result) {
 
-// function cumLaude(result) {
-//
-//     let count = 0;
-//
-//     for (let i = 0; i < grades.length; i++) {
-//
-//         if (grades[i] >= 8)
-//         {
-//             count ++;  //* count = count + 1;
-//
-//         }
-//     }
-//
-//         return count;
-// }
-//
-// const outcome = cumLaude(grades);
-// console.log(outcome);
+    let count = 0;
+
+    for (let i = 0; i < grades.length; i++) {
+
+        if (grades[i] >= 8)
+        {
+            count ++;  //* count = count + 1;
+
+        }
+    }
+
+    return count;
+}
+
+const outcome = cumLaude([9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6]);
+console.log(outcome);
+
 
 // ---- Verwachte uitkomst: 6
-
-
-// for (let i = 0; i < grades.length; i++) {
-//     const newGrades = grades[i] >= 8;
-//     console.log(newGrades);
-//
-// }
-//
-// for (let i = 0; i < grades.length; i++) {
-//     if (grades[i] >= 8) {
-//         console.log(grades[i]);
-//     }
-// }
-
 
 
 
@@ -63,37 +49,10 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // Log het antwoord in de terminal.
 
 
-
-// const gradesB = [6, 4, 5];
-// const gradeC = [8, 9, 4, 6, 10];
-//
-//     function cumLaude (result){
-//
-//         let count = 0;
-//
-//         for (let i = 0; i < grades.length; i++) {
-//
-//             if (grades[i] >= 8)
-//             {
-//                 count ++;  //* count = count + 1;
-//
-//             }
-//         }
-//
-//         return count;
-//     }
-
-
-
-//
-// const outcome1 = cumLaude(grades);
-// console.log(outcome1);
-
-
-function cumLaude(result) {
+function cumLaude(grades) {
     let count = 0;
-    for (let i = 0; i < result.length; i++) {
-        if (result[i] >= 8)
+    for (let i = 0; i < grades.length; i++) {
+        if (grades[i] >= 8)
         {
             count ++;
         }
@@ -106,8 +65,7 @@ const outcome2 = cumLaude([6, 4, 5]);
 const outcome3 = cumLaude([8, 9, 4, 6, 10]);
 
 console.log(outcome1, outcome2, outcome3);
-// console.log(outcome2);
-// console.log(outcome3);
+
 
 // ---- Verwachte uitkomsten:
 // cumLaude(grades) geeft 6
@@ -126,7 +84,85 @@ console.log(outcome1, outcome2, outcome3);
 // * Hoe zorgt ik ervoor dat ik alle waardes uit de array kan langslopen, ook als de array wel 100 entries zou bevatten?
 // Log het antwoord in de terminal.
 
+//*
+// sum the values from the array
+// get the length of the array
+// divide the array sum by the length
+
+
+function findAverage(array){
+
+    let average = 0;
+
+    for (let i = 0; i < array.length; i++) {
+
+        // average = array [i] + average;
+
+        let number = array[i]
+        average = average + number //* average += number;
+    }
+
+    average = average / array.length
+    return average;
+}
+
+const outcome4 = findAverage(grades);
+console.log(outcome4);
+
+// console.log(findAverage([9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6]));
+
+
 // ---- Verwachte uitkomst: 6.642857142857143
+
+
+
+// option 1 - why not working?
+// function cumLaude(grades) {
+//
+//     let count = 0;
+//     let total = 0;
+//     let average = total / count;
+//
+//     for (let i = 0; i < grades.length; i++) {
+//         if (grades[i] != undefined)
+//         {
+//             count ++;
+//             total += grades[i];
+//         }
+//     }
+//
+//     return count;
+//
+// }
+//
+// console.log(cumLaude(grades));
+// console.log(cumLaude([6,4,5]));
+// console.log(cumLaude([8, 9, 4, 6, 10]));
+
+// ---- Verwachte uitkomst: 6.642857142857143
+
+
+
+// option 2 why not working?
+// const getAverage = arr => {
+//
+//     //sum the values from the array
+//     const reducer = (total, currentValue) => total + currentValue
+//     const sum = arr.reduce(reducer);
+//
+//
+//
+//     return sum / arr.length;
+//
+// }
+//
+// getAverage([1,2,3]);
+
+
+// ---- Verwachte uitkomst: 6.642857142857143
+
+
+
 
 
 /* 2b: Omschrijven tot een herbruikbare functie */
@@ -139,10 +175,66 @@ console.log(outcome1, outcome2, outcome3);
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
+function averageGrade(array){
+
+    let average = 0;
+
+    for (let i = 0; i < array.length; i++) {
+
+        let currentNum = array[i]
+        average = average + currentNum //* average += currentNum;
+    }
+
+    average = average / array.length
+    return average;
+
+}
+
+const outcome5 = averageGrade(grades);
+const outcome6 = averageGrade([6, 4, 5]);
+const outcome7 = averageGrade([8, 9, 4, 6, 10]);
+
+console.log(outcome5, outcome6, outcome7);
+
+//*optional way to console.log
+// console.log(averageGrade(grades));
+// console.log(averageGrade([6, 4, 5]));
+// console.log(averageGrade([8, 9, 4, 6, 10]));
+
+
+// function round(num) {
+//     var m = Number((Math.abs(num) * 100).toPrecision(15));
+//     return Math.round(m) / 100 * Math.sign(num);
+// }
+//
+// console.log(round(1.005));
+
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
+
+function newAverageGrade(array){
+
+    let average = 0;
+
+    for (let i = 0; i < array.length; i++) {
+
+        let currentNum = array[i]
+        average = average + currentNum //* average += currentNum;
+    }
+
+    average = average / array.length
+    return average.toFixed(2);
+
+}
+
+const outcome8 = newAverageGrade(grades);
+const outcome9 = newAverageGrade([6, 4, 5]);
+const outcome10 = newAverageGrade([8, 9, 4, 6, 10]);
+
+console.log(outcome8, outcome9, outcome10);
+
 
 
 
@@ -151,10 +243,75 @@ console.log(outcome1, outcome2, outcome3);
 
 /* 3a: Script schrijven  */
 // Schrijf een script die op basis van de grades array (hierboven) checkt wat het hoogst behaalde cijfer is. Je mag hier geen bestaande methoden voor gebruiken. Schrijf de stapjes eerst uit en vraag jezelf de volgende dingen af:
-// * Hoe kan ik iedere waarde van de array langsgaan?
-// * Op welke conditie moet ik checken?
-// * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan?
+// * Hoe kan ik iedere waarde van de array langsgaan? door loops denk ik
+// * Op welke conditie moet ik checken? hoogst behaalde cijfer
+// * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan opslaan? if statement
 // Log het antwoord in de terminal.
+
+// const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+
+
+function hoogsteCijfer(array) {
+
+    // const max = Math.max(array);
+
+    let count = 0;
+    for (let i = 0; i < array.length; i++)
+
+        if (grades[i] > count) {
+            count = grades [i]
+
+    }
+
+    return count;
+
+}
+
+const result = hoogsteCijfer([9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6]);
+console.log(result);
+
+
+
+
+
+
+// function hoogsteCijfer(array) {
+//
+//     let count = 0;
+//     for (let i = 0; i < array.length; i++) {
+//
+//         for (let j = 1; j < array.length; j++) {
+//
+//             for (let k = 2; k < array.length; k++) {
+//
+//                 if (array[i] > array[j] && array[i] > array[k]) {
+//                     console.log(array[i]);
+//                 }
+//
+//             }
+//
+//         }
+//         return count;
+//     }
+// }
+//
+// const result = hoogsteCijfer([9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6]);
+// console.log(result);
+
+
+
+// function biggestNumberInArray(arr) {
+//     for (let i = 0; i < array.length; i++) {
+//         for(let j=1;j<array.length;j++){
+//             for(let k =2;k<array.length;k++){
+//                 if(array[i]>array[j] && array[i]>array[k]){
+//                     console.log(array[i]);
+//                 }
+//             }
+//         }
+//     }
+// }
+
 
 // ---- Verwachte uitkomst: 9
 
@@ -168,3 +325,10 @@ console.log(outcome1, outcome2, outcome3);
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+
+// for (let i = 0; i < ; i++) {
+//
+// }
+
+// console.log()
